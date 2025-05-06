@@ -1,7 +1,7 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
 
 Given('I open the login page', () => {
-  cy.visit('/practice-test-login/');
+  cy.visit('https://practicetestautomation.com/practice-test-login/');
 });
 
 When('I enter valid credentials', () => {

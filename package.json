@@ -1,19 +1,17 @@
 {
   "name": "cypress-practice",
   "version": "1.0.0",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "cypress:open": "cypress open"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": "",
   "devDependencies": {
     "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
     "cypress": "^14.3.2",
-    "cypress-cucumber-preprocessor": "^4.3.1",
-    "esbuild": "^0.25.4"
+    "esbuild": "^0.19.5"
   }
 }
