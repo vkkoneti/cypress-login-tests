@@ -1,17 +1,26 @@
 {
   "name": "cypress-practice",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
-    "cypress:open": "cypress open"
+    "test": "cypress open"
   },
+
+  "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "cypress": "^14.3.2",
     "@badeball/cypress-cucumber-preprocessor": "^22.0.1",
     "@bahmutov/cypress-esbuild-preprocessor": "^2.2.4",
-    "cypress": "^14.3.2",
-    "esbuild": "^0.19.5"
-  }
+    "esbuild": "^0.18.15"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vkkoneti/cypress-login-tests.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vkkoneti/cypress-login-tests/issues"
+  },
+  "homepage": "https://github.com/vkkoneti/cypress-login-tests#readme",
+  "description": ""
 }
