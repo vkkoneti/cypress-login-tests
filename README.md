@@ -1,9 +1,8 @@
-
 # Cypress + Cucumber BDD Setup with Esbuild
 
 > ✅ Verified with Cypress v14.3.2
 
-This guide walks you through configuring Cypress to support `.feature` files using the Cucumber BDD syntax with the `@badeball/cypress-cucumber-preprocessor`.
+This open-source project demonstrates how to configure Cypress to support `.feature` files using the Cucumber BDD syntax with the `@badeball/cypress-cucumber-preprocessor`. It focuses on building simple and real-world automation test scenarios to help learners and QA engineers get started quickly.
 
 ---
 
@@ -74,12 +73,19 @@ module.exports = defineConfig({
 ### `cypress/e2e/features/login.feature`
 
 ```gherkin
-Feature: Login
+Feature: Login and Practice Page Navigation
 
-  Scenario: Successful login
+  Scenario: Login and navigate to practice test pages
     Given I open the login page
     When I enter valid credentials
     Then I should see the success message
+
+    When I click on the Practice menu
+    And I click on the Test Login Page link
+    Then I should see the login test instructions
+
+    When I go back and click on the Test Exceptions link
+    Then I should see the exceptions test instructions
 ```
 
 ---
@@ -92,17 +98,40 @@ Feature: Login
 const { Given, When, Then } = require("@badeball/cypress-cucumber-preprocessor");
 
 Given("I open the login page", () => {
-  cy.visit("https://example.com/login");
+  cy.visit("https://practicetestautomation.com/practice-test-login/");
 });
 
 When("I enter valid credentials", () => {
-  cy.get("#username").type("admin");
-  cy.get("#password").type("admin123");
-  cy.get("#login").click();
+  cy.get("#username").type("student");
+  cy.get("#password").type("Password123");
+  cy.get("#submit").click();
 });
 
 Then("I should see the success message", () => {
-  cy.contains("Welcome").should("be.visible");
+  cy.contains("Logged In Successfully").should("be.visible");
+});
+
+When("I click on the Practice menu", () => {
+  cy.contains("Practice").click();
+});
+
+When("I click on the Test Login Page link", () => {
+  cy.contains("Test Login Page").click();
+});
+
+Then("I should see the login test instructions", () => {
+  cy.url().should("include", "practice-test-login");
+  cy.contains("Test login").should("be.visible");
+});
+
+When("I go back and click on the Test Exceptions link", () => {
+  cy.go("back");
+  cy.contains("Test Exceptions").click();
+});
+
+Then("I should see the exceptions test instructions", () => {
+  cy.url().should("include", "practice-test-exceptions");
+  cy.contains("Test Exceptions").should("be.visible");
 });
 ```
 
@@ -123,14 +152,40 @@ npx cypress install
 
 ## ✅ You're all set!
 
-To open Cypress:
+To open Cypress Test Runner:
 
 ```bash
 npx cypress open
 ```
 
+To run tests headlessly:
+
+```bash
+npx cypress run --spec "cypress/e2e/features/login.feature"
+```
+
+---
+
+## 🙌 Who is this for?
+
+- QA Engineers learning Cypress for the first time  
+- Testers exploring BDD-style UI automation  
+- Developers writing acceptance tests  
+- Anyone looking for a clean, minimal Cypress + Cucumber template
+
 ---
 
 ## 📌 Credits
 
-This configuration is built and verified through extensive trial/debugging to support public forums and streamline BDD automation setup.
+This project is built to educate the QA community and provide a practical reference for BDD automation with Cypress.
+
+- [Practice Test Automation](https://practicetestautomation.com/)
+- [@badeball/cypress-cucumber-preprocessor](https://github.com/badeball/cypress-cucumber-preprocessor)
+- [Cypress Documentation](https://docs.cypress.io)
+
+---
+
+## 📬 Contact
+
+Created by [Venkatakishore Koneti](https://github.com/vkkoneti)  
+Feel free to ⭐️ the repo or open an issue for suggestions or improvements.
