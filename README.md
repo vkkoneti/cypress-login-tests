@@ -179,7 +179,7 @@ npx cypress run --spec "cypress/e2e/features/login.feature"
 
 This project is built to educate the QA community and provide a practical reference for BDD automation with Cypress.
 
-🌐 [Visit My Cypress Practice Page](https://vkkoneti.github.io/cypress-login-tests)
+🌐 [Visit My Cypress Practice Page](https://vkkoneti.github.io/cypress-login-tests/index.html?)
 - [Practice Test Automation](https://practicetestautomation.com/)
 - [@badeball/cypress-cucumber-preprocessor](https://github.com/badeball/cypress-cucumber-preprocessor)
 - [Cypress Documentation](https://docs.cypress.io)
